@@ -1,14 +1,22 @@
 function isPalindrome(word) {
-  // Write your algorithm here
+  // Regular Expression (patterns used to match character combos)
+  // can also use * /[\W_]/g *
+  let regExp = /[^A-Za-z0-9]/g
+  
+  // .toLowerCase() => makes the word/string lowercase
+  // .replace(regExp, '') => removes spaces & punctuation
+  let lowercaseWord = word.toLowerCase().replace(regExp, '')
+  
+  // .split() => taking the word/string & splitting it into individual letters
+  // .reverse() => reverse the word/string/letters after splitting
+  // .join() => joins the reverse word/string/letters
+  let reverseWord = lowercaseWord.split('').reverse().join('')
+
+  // checking to see if the lowercaseWord & reverseWord are exactly the same (palindrome)
+  return reverseWord === lowercaseWord
 }
 
-/* 
-  Add your pseudocode here
-*/
 
-/*
-  Add written explanation of your solution here
-*/
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
